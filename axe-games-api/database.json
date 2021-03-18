@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "email": "aa@email.com",
+      "name": "Axel Allen",
+      "id": 1
+    },
+    {
+      "email": "bb@email.com",
+      "name": "Billy Belew",
+      "id": 2
+    },
+    {
+      "email": "cc@email.com",
+      "name": "Chris Carter",
+      "id": 3
+    },
+    {
+      "email": "dd@email.com",
+      "name": "Darnell Dennis",
+      "id": 4
+    },
+    {
+      "email": "ee@email.com",
+      "name": "Eliza Ellis",
+      "id": 5
+    },
+    {
+      "email": "ff@email.com",
+      "name": "Felicia Fierce",
+      "id": 6
+    }
+  ],
+  "matches": [],
+  "throws": [],
+  "friends": []
+}

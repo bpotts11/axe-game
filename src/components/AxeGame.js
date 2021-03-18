@@ -1,4 +1,6 @@
+import React from "react";
 import { Route, Redirect } from "react-router-dom"
+import { ApplicationViews } from "./ApplicationViews"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { userStorageKey } from "./auth/authSettings"
@@ -10,7 +12,7 @@ export const AxeGame = () => (
       if (sessionStorage.getItem(userStorageKey)) {
         return (
           <>
-              //Components that are rendered when the user is authenticated go inside this React fragment
+            <ApplicationViews />
           </>
         )
       } else {
