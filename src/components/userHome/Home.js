@@ -2,7 +2,7 @@ import { React, useContext, useEffect, useState } from "react";
 import { UserContext } from "./UserProvider"
 
 export const Home = () => {
-    const userId = parseInt(localStorage.getItem("app_user_id"))
+    const userId = parseInt(sessionStorage.getItem("app_user_id"))
     const [user, setUser] = useState({ name: "" })
 
     const { loggedUsers, getUsers } = useContext(UserContext)
@@ -18,7 +18,8 @@ export const Home = () => {
 
     return (
         <>
-            <h2>USER</h2>
+            <h2>Welcome...</h2>
+            <h3>{user.name}</h3>
         </>
     )
 }
