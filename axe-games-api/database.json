@@ -31,7 +31,22 @@
       "id": 6
     }
   ],
-  "matches": [],
+  "matches": [
+    {
+      "userId": 1,
+      "opponentsName": "Myself",
+      "userWin": false,
+      "timeStamp": 1616170822159,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "opponentsName": "Myself",
+      "userWin": false,
+      "timeStamp": 1616171971554,
+      "id": 2
+    }
+  ],
   "throws": [],
-  "friends": []
+  // "friends": []
 }

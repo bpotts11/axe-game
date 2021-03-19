@@ -1,8 +1,8 @@
 import React from "react"
 import { Route, Router } from "react-router-dom"
 import { MatchForm } from "./match/MatchForm"
-import { Home } from "./userHome/Home"
-import { UserProvider } from "./userHome/UserProvider"
+import { Home } from "./user/Home"
+import { UserProvider } from "./user/UserProvider"
 import { MatchProvider } from "./match/MatchProvider"
 import { MatchButton } from "./match/MatchButton"
 
