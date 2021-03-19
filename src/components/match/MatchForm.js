@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom'
 import { MatchContext } from "./MatchProvider";
-import "./Match.css"
 import { UserContext } from "../user/UserProvider";
+import "./Match.css"
 
 export const MatchForm = () => {
     const { addMatches } = useContext(MatchContext)
@@ -30,7 +30,7 @@ export const MatchForm = () => {
             window.alert("Please enter your opponent's name")
         } else {
             addMatches(match)
-                .then(() => history.push("/matches"))
+                .then(() => history.push("/throws/create"))
             //come back here and fix this push to go to tasks once you have that route set up
             // DO NOT FORGET THIS
             // when you inevitable forget this tell yourself you told yourself so that you would forget it

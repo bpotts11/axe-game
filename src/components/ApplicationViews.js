@@ -5,19 +5,26 @@ import { Home } from "./user/Home"
 import { UserProvider } from "./user/UserProvider"
 import { MatchProvider } from "./match/MatchProvider"
 import { MatchButton } from "./match/MatchButton"
+import { ThrowForm } from "./throw/ThrowForm"
+import { ThrowProvider } from "./throw/ThrowProvider"
 
 export const ApplicationViews = () => {
     return (
         <>
             <UserProvider>
                 <MatchProvider>
-                    <Route exact path="/">
-                        <Home />
-                        <MatchButton />
-                    </Route>
-                    <Route path="/matches/create">
-                        <MatchForm />
-                    </Route>
+                    <ThrowProvider>
+                        <Route exact path="/">
+                            <Home />
+                            <MatchButton />
+                        </Route>
+                        <Route path="/matches/create">
+                            <MatchForm />
+                        </Route>
+                        <Route path="/throws/create">
+                            <ThrowForm />
+                        </Route>
+                    </ThrowProvider>
                 </MatchProvider>
             </UserProvider>
         </>
