@@ -2,7 +2,7 @@ import React, { useState, createContext } from "react"
 
 export const MatchContext = createContext()
 
-export const MatchProvier = (props) => {
+export const MatchProvider = (props) => {
     const [matches, setMatches] = useState([])
 
     const addMatches = matchObj => {
@@ -23,3 +23,5 @@ export const MatchProvier = (props) => {
         </MatchContext.Provider>
     )
 }
+
+// I don't think I need set Matches. Come back to this section and reevaluate what you are doing
