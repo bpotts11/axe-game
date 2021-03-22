@@ -31,43 +31,49 @@
       "id": 6
     }
   ],
-  "matches": [
-    {
-      "userId": 2,
-      "opponentsName": "Myself",
-      "userWin": false,
-      "timeStamp": 1616184963103,
-      "id": 1
-    },
-    {
-      "userId": 2,
-      "opponentsName": "Myself",
-      "userWin": false,
-      "timeStamp": 1616185034345,
-      "id": 2
-    },
-    {
-      "userId": 2,
-      "opponentsName": "ttt",
-      "userWin": false,
-      "timeStamp": 1616185063841,
-      "id": 3
-    }
-  ],
+  "matches": [],
   "throws": [
     {
       "matchId": "",
       "userThrow": "1",
       "opponentsThrow": "1",
-      "throwOrder": "",
+      "throwOrder": 1,
       "id": 1
     },
     {
       "matchId": "",
       "userThrow": "1",
       "opponentsThrow": "1",
-      "throwOrder": "",
+      "throwOrder": 1,
       "id": 2
+    },
+    {
+      "matchId": "",
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 1,
+      "id": 3
+    },
+    {
+      "matchId": "",
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 1,
+      "id": 4
+    },
+    {
+      "matchId": "",
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 1,
+      "id": 5
+    },
+    {
+      "matchId": "",
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 1,
+      "id": 6
     }
   ],
   "friends": []

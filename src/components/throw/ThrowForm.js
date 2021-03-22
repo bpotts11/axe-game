@@ -6,19 +6,35 @@ import "./Throw.css";
 export const ThrowForm = () => {
     const { addThrow } = useContext(ThrowContext)
     const history = useHistory()
+    let [countThrows, setCountThrows] = useState(1)
 
     const [throwObj, setThrow] = useState({
         matchId: "", // come back here and figure out how to make this automatically be populated with match id
         userThrow: "",
         opponentsThrow: "",
-        throwOrder: ""
+        throwOrder: countThrows
     })
+
+
+    const handleThrowChange = () => {
+        const newThrowClicks = ++countThrows
+        setCountThrows(newThrowClicks)
+    }
 
     const handleControlledInputChange = (event) => {
         const newThrow = { ...throwObj }
         newThrow[event.target.id] = event.target.value
         setThrow(newThrow)
     }
+    // const handleThrowChange = (event) => {
+    //     const newThrowNumber = { ...++countThrows }
+    //     newThrowNumber[event.target.id] = event.target.value
+    //     setCountThrows(newThrowNumber)
+    // }
+    // const ThrowIdInfo = (event) => {
+    //     const newThrowClicks = ++countThrows
+    //     setCountThrows(newThrowClicks)
+    // }
 
     const handleSaveThrow = () => {
         if (throwObj.userThrow === "") {
@@ -28,15 +44,54 @@ export const ThrowForm = () => {
         } else {
             addThrow(throwObj)
                 .then(() => history.push("/"))
-            //come back to this area and decide there you and going to push this state to?
-            // DO NOT FORGET THIS
-            //see if there is a way to only limit this to run 5 times
+        }
+    }
+    const handleNextThrow = () => {
+        if (throwObj.userThrow === "") {
+            window.alert("Please enter your score")
+        } else if (throwObj.opponentsThrow === "") {
+            window.alert("Please enter your opponent's score")
+        } else {
+            addThrow(throwObj)
+                .then(() => history.push("/throws/create"))
         }
     }
 
+
+    const SaveThrowButton = () => {
+        if (parseInt(throwObj.throwOrder) === 5) {
+            return (
+                <button className="btn btn-primary"
+                    onClick={event => {
+                        event.preventDefault()
+                        handleSaveThrow()
+                    }}>
+                    Save
+                </button>
+            )
+        } else {
+            return (
+                <button className="btn btn-primary"
+                    onClick={event => {
+                        event.preventDefault()
+                        handleNextThrow()
+                        handleThrowChange()
+                    }}>
+                    Next Throw
+                </button>
+            )
+        }
+    }
+
+
     return (
         <form className="throwForm">
-            <h2>Throw</h2>
+            <h2>Throw:
+                <div onChange={handleThrowChange} value={throwObj.throwOrder}>
+                    {countThrows}
+                </div>
+            </h2>
+            <p>{countThrows}</p>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="userThrow">Your throw</label>
@@ -49,13 +104,7 @@ export const ThrowForm = () => {
                     <input type="text" id="opponentsThrow" required className="form-control" onChange={handleControlledInputChange} value={throwObj.opponentsThrow} />
                 </div>
             </fieldset>
-            <button className="btn btn-primary"
-                onClick={event => {
-                    event.preventDefault()
-                    handleSaveThrow()
-                }}>
-                Save
-            </button>
+            <SaveThrowButton />
         </form>
     )
 }
