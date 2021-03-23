@@ -6,10 +6,15 @@ import "./Throw.css";
 export const ThrowForm = () => {
     const { addThrow } = useContext(ThrowContext)
     let [countThrows, setCountThrows] = useState(1)
-    const [throwObj, setThrow] = useState({})
     const { matchId } = useParams()
 
+    const [throwObj, setThrow] = useState({
+        userThrow: "",
+        opponentsThrow: ""
+    })
 
+
+    // This counts the number of times the save button has been clicked so it keeps track of what throw the user is on
     const handleThrowChange = () => {
         const newThrowClicks = ++countThrows
         setCountThrows(newThrowClicks)
@@ -47,7 +52,7 @@ export const ThrowForm = () => {
 
     return (
         <>
-            {countThrows <= 2 ? <form className="throwForm">
+            {countThrows <= 5 ? <form className="throwForm">
                 <h2>Throw:
                 <div>
                         {countThrows}

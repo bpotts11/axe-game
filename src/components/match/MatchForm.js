@@ -26,12 +26,12 @@ export const MatchForm = () => {
         if (match.opponentsName === "") {
             window.alert("Please enter your opponent's name")
         } else {
-            addMatches({
-                userId: parseInt(sessionStorage.getItem("app_user_id")),
-                opponentsName: "",
-                userWin: false,
-                timeStamp: ""
-            })
+            addMatches(match)
+                // userId: parseInt(sessionStorage.getItem("app_user_id")),
+                // opponentsName: "",
+                // userWin: false,
+                // timeStamp: ""
+
                 .then((matchId) => history.push(`/matches/${matchId.id}/throws/create`))
         }
     }
