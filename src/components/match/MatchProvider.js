@@ -24,6 +24,7 @@ export const MatchProvider = (props) => {
             },
             body: JSON.stringify(matchObj)
         })
+            .then(matchId => matchId.json())
     }
 
     return (

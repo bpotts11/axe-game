@@ -7,20 +7,19 @@ export const MatchForm = () => {
     const { matches, addMatches, getMatchById, getMatches } = useContext(MatchContext)
     const [user] = useState({ name: "" })
     const history = useHistory()
-    const { matchId } = useParams()
 
+
+    // const { matchId } = useParams()
 
     // useEffect(() => {
     //     const currentMatch = matches
     // })
 
     // useEffect(() => {
-    //     debugger
-    //     getMatches().then(() => {
-    //         if (matchId) {
-    //             getMatchById(matchId)
-    //         }
-    //     })
+    //     getMatchById(matchId)
+    //         .then((match) => {
+    //             setMatch(match)
+    //         })
     // })
 
     const [match, setMatch] = useState({
@@ -41,8 +40,13 @@ export const MatchForm = () => {
         if (match.opponentsName === "") {
             window.alert("Please enter your opponent's name")
         } else {
-            addMatches(match)
-                .then(() => history.push(`matches/${matchId}/throws/create`)) //comeack here and add throw ID
+            addMatches({
+                userId: parseInt(sessionStorage.getItem("app_user_id")),
+                opponentsName: "",
+                userWin: false,
+                timeStamp: ""
+            })
+                .then((matchId) => history.push(`/matches/${matchId.id}/throws/create`)) //comeack here and add throw ID
             // .then(() => history.push(`/throws/create`))
         }
     }

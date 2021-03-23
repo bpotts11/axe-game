@@ -34,86 +34,59 @@
   "matches": [
     {
       "userId": 3,
-      "opponentsName": "eee",
+      "opponentsName": "",
       "userWin": false,
-      "timeStamp": 1616476080860,
+      "timeStamp": "",
       "id": 1
     },
     {
       "userId": 3,
-      "opponentsName": "Myself",
+      "opponentsName": "",
       "userWin": false,
-      "timeStamp": 1616476399366,
+      "timeStamp": "",
       "id": 2
     },
     {
       "userId": 3,
-      "opponentsName": "Myself",
+      "opponentsName": "",
       "userWin": false,
-      "timeStamp": 1616476416495,
+      "timeStamp": "",
       "id": 3
     },
     {
       "userId": 3,
-      "opponentsName": "sss",
+      "opponentsName": "",
       "userWin": false,
-      "timeStamp": 1616476479918,
+      "timeStamp": "",
       "id": 4
     },
     {
-      "opponentsName": "ttt",
-      "timeStamp": 1616476701289,
+      "userId": 3,
+      "opponentsName": "",
+      "userWin": false,
+      "timeStamp": "",
       "id": 5
     },
     {
-      "opponentsName": "ttt",
-      "timeStamp": 1616476830136,
+      "userId": 3,
+      "opponentsName": "",
+      "userWin": false,
+      "timeStamp": "",
       "id": 6
     },
     {
+      "userId": 3,
+      "opponentsName": "",
+      "userWin": false,
+      "timeStamp": "",
       "id": 7
     },
     {
       "userId": 3,
-      "opponentsName": "Myself",
+      "opponentsName": "",
       "userWin": false,
-      "timeStamp": 1616478743661,
+      "timeStamp": "",
       "id": 8
-    },
-    {
-      "userId": 3,
-      "opponentsName": "britt",
-      "userWin": false,
-      "timeStamp": 1616479515082,
-      "id": 9
-    },
-    {
-      "userId": 3,
-      "opponentsName": "ttt",
-      "userWin": false,
-      "timeStamp": 1616509055012,
-      "id": 10
-    },
-    {
-      "userId": 3,
-      "opponentsName": "ttt",
-      "userWin": false,
-      "timeStamp": 1616509337846,
-      "id": 11
-    },
-    {
-      "userId": 3,
-      "opponentsName": "Myself",
-      "userWin": false,
-      "timeStamp": 1616509516819,
-      "id": 12
-    },
-    {
-      "userId": 3,
-      "opponentsName": "ttt",
-      "userWin": false,
-      "timeStamp": 1616512320444,
-      "id": 13
     }
   ],
   "throws": [
@@ -121,7 +94,22 @@
       "userThrow": "1",
       "opponentsThrow": "1",
       "throwOrder": 1,
+      "matchId": "7",
       "id": 1
+    },
+    {
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 1,
+      "matchId": "8",
+      "id": 2
+    },
+    {
+      "userThrow": "2",
+      "opponentsThrow": "2",
+      "throwOrder": 2,
+      "matchId": "8",
+      "id": 3
     }
   ],
   "friends": []
