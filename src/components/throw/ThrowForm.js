@@ -1,15 +1,12 @@
-import React, { useContext, useEffect, useState } from "react"
-import { useHistory, useParams } from 'react-router-dom'
+import React, { useContext, useState } from "react"
+import { useParams } from 'react-router-dom'
 import { ThrowContext } from "./ThrowProvider";
 import "./Throw.css";
 
 export const ThrowForm = () => {
     const { addThrow } = useContext(ThrowContext)
-    const history = useHistory()
     let [countThrows, setCountThrows] = useState(1)
     const [throwObj, setThrow] = useState({})
-
-
     const { matchId } = useParams()
 
 
@@ -24,35 +21,12 @@ export const ThrowForm = () => {
         setThrow(newThrow)
     }
 
-
-    // const handleSaveThrow = () => {
-    //     if (throwObj.userThrow === "") {
-    //         window.alert("Please enter your score")
-    //     } else if (throwObj.opponentsThrow === "") {
-    //         window.alert("Please enter your opponent's score")
-    //     } else {
-    //         addThrow(throwObj)
-    //             .then(() => {
-    //                 const newThrow = { ...throwObj }
-    //                 newThrow["userThrow"] = ""
-    //                 newThrow["opponentsThrow"] = ""
-    //                 setThrow(newThrow)
-    //                 handleThrowChange()
-    //             })
-    //     }
-    // }
     const handleNextThrow = () => {
         if (throwObj.userThrow === "") {
             window.alert("Please enter your score")
         } else if (throwObj.opponentsThrow === "") {
             window.alert("Please enter your opponent's score")
-        }
-        // else {
-        // if ({ countThrows } >= 2) {
-        //     addThrow(throwObj)
-        //         .then(() => history.push("/"))
-        // } 
-        else {
+        } else {
             //This is where the throw order is being added
             const throwToBeSaved = { ...throwObj }
             throwToBeSaved.throwOrder = countThrows
@@ -69,33 +43,6 @@ export const ThrowForm = () => {
         }
     }
 
-
-
-
-    // const SaveThrowButton = () => {
-    //     // debugger
-    //     if ({ countThrows } === 2) {
-    //         return (
-    //             <button className="btn btn-primary"
-    //                 onClick={event => {
-    //                     event.preventDefault()
-    //                     handleNextThrow()
-    //                 }}>
-    //                 Save
-    //             </button>
-    //         )
-    //     } else {
-    //         return (
-    //             <button className="btn btn-primary"
-    //                 onClick={event => {
-    //                     event.preventDefault()
-    //                     handleNextThrow()
-    //                 }}>
-    //                 Next Throw
-    //             </button>
-    //         )
-    //     }
-    // }
 
 
     return (

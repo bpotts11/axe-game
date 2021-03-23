@@ -1,26 +1,12 @@
-import React, { useContext, useEffect, useState } from "react"
-import { useHistory, useParams } from 'react-router-dom'
+import React, { useContext, useState } from "react"
+import { useHistory } from 'react-router-dom'
 import { MatchContext } from "./MatchProvider";
 import "./Match.css"
 
 export const MatchForm = () => {
-    const { matches, addMatches, getMatchById, getMatches } = useContext(MatchContext)
+    const { addMatches } = useContext(MatchContext)
     const [user] = useState({ name: "" })
     const history = useHistory()
-
-
-    // const { matchId } = useParams()
-
-    // useEffect(() => {
-    //     const currentMatch = matches
-    // })
-
-    // useEffect(() => {
-    //     getMatchById(matchId)
-    //         .then((match) => {
-    //             setMatch(match)
-    //         })
-    // })
 
     const [match, setMatch] = useState({
         userId: parseInt(sessionStorage.getItem("app_user_id")),
@@ -46,8 +32,7 @@ export const MatchForm = () => {
                 userWin: false,
                 timeStamp: ""
             })
-                .then((matchId) => history.push(`/matches/${matchId.id}/throws/create`)) //comeack here and add throw ID
-            // .then(() => history.push(`/throws/create`))
+                .then((matchId) => history.push(`/matches/${matchId.id}/throws/create`))
         }
     }
 
