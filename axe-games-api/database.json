@@ -33,20 +33,28 @@
   ],
   "matches": [
     {
-      "userId": 1,
-      "opponentsName": "Myself",
+      "userId": 3,
+      "opponentsName": "",
       "userWin": false,
-      "timeStamp": 1616170822159,
+      "timeStamp": "",
+      "id": 1
+    }
+  ],
+  "throws": [
+    {
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 1,
+      "matchId": "1",
       "id": 1
     },
     {
-      "userId": 1,
-      "opponentsName": "Myself",
-      "userWin": false,
-      "timeStamp": 1616171971554,
+      "userThrow": "2",
+      "opponentsThrow": "2",
+      "throwOrder": 2,
+      "matchId": "1",
       "id": 2
     }
   ],
-  "throws": [],
-  // "friends": []
+  "friends": []
 }
