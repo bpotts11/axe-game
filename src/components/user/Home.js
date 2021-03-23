@@ -2,9 +2,7 @@ import { React, useContext, useEffect, useState } from "react";
 import { UserContext } from "./UserProvider"
 
 export const Home = () => {
-    const userId = parseInt(sessionStorage.getItem("app_user_id"))
     const [user, setUser] = useState({ name: "" })
-
     const { loggedUsers, getUsers } = useContext(UserContext)
 
     useEffect(() => {
@@ -12,7 +10,7 @@ export const Home = () => {
     }, [])
 
     useEffect(() => {
-        const newestUser = loggedUsers.find(user => user.id === userId)
+        const newestUser = loggedUsers.find(user => user.id === parseInt(sessionStorage.getItem("app_user_id")))
         if (newestUser) setUser(newestUser)
     }, [loggedUsers])
 

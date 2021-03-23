@@ -1,18 +1,30 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom'
 import { MatchContext } from "./MatchProvider";
-import { UserContext } from "../user/UserProvider";
 import "./Match.css"
 
 export const MatchForm = () => {
-    const { addMatches } = useContext(MatchContext)
-    const { loggedUsers, getUsers } = useContext(UserContext)
-    const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
-    const [user, setUser] = useState({ name: "" })
+    const { matches, addMatches, getMatchById, getMatches } = useContext(MatchContext)
+    const [user] = useState({ name: "" })
     const history = useHistory()
+    const { matchId } = useParams()
+
+
+    // useEffect(() => {
+    //     const currentMatch = matches
+    // })
+
+    // useEffect(() => {
+    //     debugger
+    //     getMatches().then(() => {
+    //         if (matchId) {
+    //             getMatchById(matchId)
+    //         }
+    //     })
+    // })
 
     const [match, setMatch] = useState({
-        userId: currentUserId,
+        userId: parseInt(sessionStorage.getItem("app_user_id")),
         opponentsName: "",
         userWin: false,
         timeStamp: ""
@@ -30,24 +42,10 @@ export const MatchForm = () => {
             window.alert("Please enter your opponent's name")
         } else {
             addMatches(match)
-                .then(() => history.push("/throws/create"))
-            //come back here and fix this push to go to tasks once you have that route set up
-            // DO NOT FORGET THIS
-            // when you inevitable forget this tell yourself you told yourself so that you would forget it
-            // I hope this is enough comments that you will notice this in the future
+                .then(() => history.push(`matches/${matchId}/throws/create`)) //comeack here and add throw ID
+            // .then(() => history.push(`/throws/create`))
         }
     }
-
-    // this useEffect allows me to enter the users name in the div
-    useEffect(() => {
-        getUsers()
-    }, [])
-
-    useEffect(() => {
-        const newestUser = loggedUsers.find(user => user.id === currentUserId)
-        if (newestUser) setUser(newestUser)
-    }, [loggedUsers])
-    // end of useEffect for allowing user name
 
     return (
         <form className="matchForm">

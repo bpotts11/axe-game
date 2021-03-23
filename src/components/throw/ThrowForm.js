@@ -2,17 +2,28 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom'
 import { ThrowContext } from "./ThrowProvider";
 import "./Throw.css";
+import { MatchContext } from "../match/MatchProvider";
 
 export const ThrowForm = () => {
     const { addThrow } = useContext(ThrowContext)
+    // const { getMatchById } = useContext(MatchContext)
     const history = useHistory()
+    // const { matchId } = useParams()
     let [countThrows, setCountThrows] = useState(1)
 
+
+    // useEffect(() => {
+    //     debugger
+    //     getMatchById(matchId)
+    //         .then((res) => {
+    //             setThrow(res)
+    //         })
+    // })
+
     const [throwObj, setThrow] = useState({
-        matchId: "", // come back here and figure out how to make this automatically be populated with match id
+        // matchId: parseInt(matchId), // come back here and figure out how to make this automatically be populated with match id
         userThrow: "",
-        opponentsThrow: "",
-        throwOrder: countThrows
+        opponentsThrow: ""
     })
 
 
@@ -26,68 +37,83 @@ export const ThrowForm = () => {
         newThrow[event.target.id] = event.target.value
         setThrow(newThrow)
     }
-    // const handleThrowChange = (event) => {
-    //     const newThrowNumber = { ...++countThrows }
-    //     newThrowNumber[event.target.id] = event.target.value
-    //     setCountThrows(newThrowNumber)
-    // }
-    // const ThrowIdInfo = (event) => {
-    //     const newThrowClicks = ++countThrows
-    //     setCountThrows(newThrowClicks)
-    // }
 
-    const handleSaveThrow = () => {
-        if (throwObj.userThrow === "") {
-            window.alert("Please enter your score")
-        } else if (throwObj.opponentsThrow === "") {
-            window.alert("Please enter your opponent's score")
-        } else {
-            addThrow(throwObj)
-                .then(() => history.push("/"))
-        }
-    }
+
+    // const handleSaveThrow = () => {
+    //     if (throwObj.userThrow === "") {
+    //         window.alert("Please enter your score")
+    //     } else if (throwObj.opponentsThrow === "") {
+    //         window.alert("Please enter your opponent's score")
+    //     } else {
+    //         addThrow(throwObj)
+    //             .then(() => {
+    //                 const newThrow = { ...throwObj }
+    //                 newThrow["userThrow"] = ""
+    //                 newThrow["opponentsThrow"] = ""
+    //                 setThrow(newThrow)
+    //                 handleThrowChange()
+    //             })
+    //     }
+    // }
     const handleNextThrow = () => {
+        debugger
         if (throwObj.userThrow === "") {
             window.alert("Please enter your score")
         } else if (throwObj.opponentsThrow === "") {
             window.alert("Please enter your opponent's score")
         } else {
-            addThrow(throwObj)
-                .then(() => history.push("/throws/create"))
-        }
-    }
-
-
-    const SaveThrowButton = () => {
-        if (parseInt(throwObj.throwOrder) === 5) {
-            return (
-                <button className="btn btn-primary"
-                    onClick={event => {
-                        event.preventDefault()
-                        handleSaveThrow()
-                    }}>
-                    Save
-                </button>
-            )
-        } else {
-            return (
-                <button className="btn btn-primary"
-                    onClick={event => {
-                        event.preventDefault()
-                        handleNextThrow()
+            if ({ countThrows } >= 2) {
+                addThrow(throwObj)
+                    .then(() => history.push("/"))
+            } else {
+                //This is where the throw order is being added
+                const throwToBeSaved = { ...throwObj }
+                throwToBeSaved.throwOrder = countThrows
+                addThrow(throwToBeSaved)
+                    .then(() => {
+                        //this resets the for total for the throws to blank
+                        const newThrow = { ...throwObj }
+                        newThrow["userThrow"] = ""
+                        newThrow["opponentsThrow"] = ""
+                        setThrow(newThrow)
                         handleThrowChange()
-                    }}>
-                    Next Throw
-                </button>
-            )
+                    })
+            }
         }
     }
+
+
+
+    // const SaveThrowButton = () => {
+    //     // debugger
+    //     if ({ countThrows } === 2) {
+    //         return (
+    //             <button className="btn btn-primary"
+    //                 onClick={event => {
+    //                     event.preventDefault()
+    //                     handleNextThrow()
+    //                 }}>
+    //                 Save
+    //             </button>
+    //         )
+    //     } else {
+    //         return (
+    //             <button className="btn btn-primary"
+    //                 onClick={event => {
+    //                     event.preventDefault()
+    //                     handleNextThrow()
+    //                 }}>
+    //                 Next Throw
+    //             </button>
+    //         )
+    //     }
+    // }
 
 
     return (
         <form className="throwForm">
             <h2>Throw:
-                <div onChange={handleThrowChange} value={throwObj.throwOrder}>
+                <div>
                     {countThrows}
                 </div>
             </h2>
@@ -104,7 +130,13 @@ export const ThrowForm = () => {
                     <input type="text" id="opponentsThrow" required className="form-control" onChange={handleControlledInputChange} value={throwObj.opponentsThrow} />
                 </div>
             </fieldset>
-            <SaveThrowButton />
+            <button className="btn btn-primary"
+                onClick={event => {
+                    event.preventDefault()
+                    handleNextThrow()
+                }}>
+                Save
+                </button>
         </form>
     )
 }

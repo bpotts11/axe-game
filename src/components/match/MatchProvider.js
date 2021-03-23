@@ -5,6 +5,17 @@ export const MatchContext = createContext()
 export const MatchProvider = (props) => {
     const [matches, setMatches] = useState([])
 
+    const getMatches = () => {
+        return fetch("http://localhost:8088/matches")
+            .then(res => res.json())
+            .then(setMatches)
+    }
+
+    const getMatchById = (id) => {
+        return fetch(`http://localhost:8088/matches/${id}`)
+            .then(res => res.json())
+    }
+
     const addMatches = matchObj => {
         return fetch("http://localhost:8088/matches", {
             method: "POST",
@@ -17,11 +28,9 @@ export const MatchProvider = (props) => {
 
     return (
         <MatchContext.Provider value={{
-            matches, addMatches
+            matches, getMatches, getMatchById, addMatches
         }}>
             {props.children}
         </MatchContext.Provider>
     )
 }
-
-// I don't think I need set Matches. Come back to this section and reevaluate what you are doing
