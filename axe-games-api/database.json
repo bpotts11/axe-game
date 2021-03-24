@@ -55,8 +55,9 @@
     },
     {
       "userId": 3,
-      "opponentsName": "matt",
-      "timeStamp": 1616609842760,
+      "opponentsName": "Johnny",
+      "userWin": false,
+      "timeStamp": 1616611995296,
       "id": 4
     }
   ],
@@ -174,8 +175,8 @@
       "id": 16
     },
     {
-      "userThrow": "1",
-      "opponentsThrow": "1",
+      "userThrow": "2",
+      "opponentsThrow": "2",
       "throwOrder": 2,
       "matchId": 4,
       "id": 17
@@ -188,15 +189,15 @@
       "id": 18
     },
     {
-      "userThrow": "1",
-      "opponentsThrow": "1",
+      "userThrow": "22",
+      "opponentsThrow": "2",
       "throwOrder": 4,
       "matchId": 4,
       "id": 19
     },
     {
       "userThrow": "1",
-      "opponentsThrow": "1",
+      "opponentsThrow": "2",
       "throwOrder": 5,
       "matchId": 4,
       "id": 20

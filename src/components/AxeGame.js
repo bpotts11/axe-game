@@ -4,6 +4,7 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar";
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { Logout } from "./auth/Logout";
 import { userStorageKey } from "./auth/authSettings"
 import './AxeGame.css';
 
@@ -27,6 +28,9 @@ export const AxeGame = () => (
     </Route>
     <Route path="/register">
       <Register />
+    </Route>
+    <Route path="/logout">
+      <Logout />
     </Route>
   </>
 )

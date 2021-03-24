@@ -11,11 +11,6 @@ export const ThrowProvider = (props) => {
             .then(setThrows)
     }
 
-    const getThrowById = (id) => {
-        return fetch(`http://localhost:8088/throws/${id}`)
-            .then(res => res.json())
-    }
-
     const addThrow = (throwObj) => {
         return fetch("http://localhost:8088/throws", {
             method: "POST",
@@ -27,27 +22,9 @@ export const ThrowProvider = (props) => {
             .then(getThrows)
     }
 
-    const deleteThrow = (throwId) => {
-        return fetch(`http://localhost:8088/throws/${throwId}`, {
-            method: "DELETE"
-        })
-            .then(getThrows)
-    }
-
-    const editThrow = (throwObj) => {
-        return fetch(`http://localhost:8088/throws/${throwObj.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(throwObj)
-        })
-            .then(getThrows)
-    }
-
     return (
         <ThrowContext.Provider value={{
-            throws, getThrows, getThrowById, addThrow, deleteThrow, editThrow
+            throws, getThrows, addThrow
         }}>
             {props.children}
         </ThrowContext.Provider>
