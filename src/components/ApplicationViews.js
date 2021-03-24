@@ -22,6 +22,9 @@ export const ApplicationViews = () => {
                         <Route path="/matches/create">
                             <MatchForm />
                         </Route>
+                        <Route path="/matches/edit/:matchId(\d+)">
+                            <MatchForm />
+                        </Route>
                         <Route path="/matches/:matchId(\d+)/throws/create">
                             {/* <Route path="/throws/create"> */}
                             <ThrowForm />

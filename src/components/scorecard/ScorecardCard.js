@@ -24,6 +24,7 @@ export const ScorecardCard = ({ scorecard }) => {
             <ul className="scorecard__userThrows">
                 {scorecard.throws?.map(throwObj => <li key={throwObj.id}>Throw {throwObj.throwOrder} - {throwObj.opponentsThrow}</li>)}
             </ul>
+            <button onClick={() => { history.push(`/matches/edit/${scorecard.id}`) }}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
         </section>
     )

@@ -52,6 +52,12 @@
       "userWin": false,
       "timeStamp": 1616599782074,
       "id": 3
+    },
+    {
+      "userId": 3,
+      "opponentsName": "matt",
+      "timeStamp": 1616609842760,
+      "id": 4
     }
   ],
   "throws": [
@@ -159,6 +165,41 @@
       "throwOrder": 5,
       "matchId": 3,
       "id": 15
+    },
+    {
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 1,
+      "matchId": 4,
+      "id": 16
+    },
+    {
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 2,
+      "matchId": 4,
+      "id": 17
+    },
+    {
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 3,
+      "matchId": 4,
+      "id": 18
+    },
+    {
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 4,
+      "matchId": 4,
+      "id": 19
+    },
+    {
+      "userThrow": "1",
+      "opponentsThrow": "1",
+      "throwOrder": 5,
+      "matchId": 4,
+      "id": 20
     }
   ],
   "friends": []
