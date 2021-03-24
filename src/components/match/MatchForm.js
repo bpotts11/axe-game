@@ -1,12 +1,15 @@
-import React, { useContext, useState } from "react"
-import { useHistory } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from "react"
+import { useHistory, useParams } from 'react-router-dom'
 import { MatchContext } from "./MatchProvider";
 import "./Match.css"
 
 export const MatchForm = () => {
-    const { addMatches } = useContext(MatchContext)
+    const { getMatches, getMatchById, addMatches, editMatch } = useContext(MatchContext)
     const [user] = useState({ name: "" })
     const history = useHistory()
+    const { matchId } = useParams()
+
+    const [isLoading, setIsLoading] = useState(true)
 
     const [match, setMatch] = useState({
         userId: parseInt(sessionStorage.getItem("app_user_id")),
@@ -26,15 +29,41 @@ export const MatchForm = () => {
         if (match.opponentsName === "") {
             window.alert("Please enter your opponent's name")
         } else {
-            addMatches(match)
-                // userId: parseInt(sessionStorage.getItem("app_user_id")),
-                // opponentsName: "",
-                // userWin: false,
-                // timeStamp: ""
+            setIsLoading(true)
+            if (matchId) {
+                editMatch({
+                    userId: match.userId,
+                    opponentsName: match.opponentsName,
+                    userWin: false,
+                    timeStamp: match.timeStamp,
+                    id: match.id
+                })
+                    .then(() => history.push("/scorecards"))
+            } else {
+                addMatches(match)
+                    // userId: parseInt(sessionStorage.getItem("app_user_id")),
+                    // opponentsName: "",
+                    // userWin: false,
+                    // timeStamp: ""
 
-                .then((matchId) => history.push(`/matches/${matchId.id}/throws/create`))
+                    .then((matchId) => history.push(`/matches/${matchId.id}/throws/create`))
+            }
         }
     }
+
+    useEffect(() => {
+        getMatches().then(() => {
+            if (matchId) {
+                getMatchById(matchId)
+                    .then(match => {
+                        setMatch(match)
+                        setIsLoading(false)
+                    })
+            } else {
+                setIsLoading(false)
+            }
+        })
+    }, [])
 
     return (
         <form className="matchForm">
@@ -46,6 +75,7 @@ export const MatchForm = () => {
                     <input type="text" id="opponentsName" required className="form-control" placeholder="Opponent's Name" onChange={handleControlledInputChange} value={match.opponentsName} />
                 </div>
                 <button className="btn btn-primary"
+                    disabled={isLoading}
                     onClick={event => {
                         event.preventDefault()
                         handleSaveMatch()
