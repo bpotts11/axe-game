@@ -27,9 +27,16 @@ export const MatchProvider = (props) => {
             .then(matchId => matchId.json())
     }
 
+    const deleteMatch = matchId => {
+        return fetch(`http://localhost:8088/matches/${matchId}`, {
+            method: "DELETE"
+        })
+            .then(getMatches)
+    }
+
     return (
         <MatchContext.Provider value={{
-            matches, getMatches, getMatchById, addMatches
+            matches, getMatches, getMatchById, addMatches, deleteMatch
         }}>
             {props.children}
         </MatchContext.Provider>
