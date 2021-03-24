@@ -13,6 +13,8 @@ export const ScorecardCard = ({ scorecard }) => {
                 history.push("/scorecards")
             })
     }
+
+    // This is building up the scorecard with the info from matches and mapping through throws
     return (
         <section className="scorecard">
             <div className="scorecard__date">{new Date(scorecard.timeStamp).toLocaleDateString('en-US')}</div>
