@@ -4,7 +4,7 @@ import { MatchForm } from "./match/MatchForm"
 import { Home } from "./user/Home"
 import { UserProvider } from "./user/UserProvider"
 import { MatchProvider } from "./match/MatchProvider"
-import { MatchButton } from "./match/MatchButton"
+// import { MatchButton } from "./match/MatchButton"
 import { ThrowForm } from "./throw/ThrowForm"
 import { ThrowProvider } from "./throw/ThrowProvider"
 import { ScorecardList } from "./scorecard/ScorecardList"
@@ -17,7 +17,7 @@ export const ApplicationViews = () => {
                     <ThrowProvider>
                         <Route exact path="/">
                             <Home />
-                            <MatchButton />
+                            {/* <MatchButton /> */}
                         </Route>
                         <Route path="/matches/create">
                             <MatchForm />

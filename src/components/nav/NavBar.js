@@ -8,7 +8,10 @@ export const NavBar = (props) => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">Home</Link>
             </li>
-            <li className="navbar__item">
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/matches/create">New Match</Link>
+            </li>
+            <li className="navbar__item active">
                 <Link className="navbar__link" to="/scorecards">Scorecards</Link>
             </li>
             {/* <li className="navbar__item">

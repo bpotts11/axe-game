@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react"
+import { useHistory } from "react-router"
 import { ScorecardCard } from "./ScorecardCard"
 import { MatchContext } from "../match/MatchProvider"
 import "./Scorecard.css"
 
-export const ScorecardList = () => {
-    const { matches, getMatches } = useContext(MatchContext)
+export const ScorecardList = ({ match }) => {
+    const { matches, getMatches, deleteMatch } = useContext(MatchContext)
     const currentUserId = parseInt(sessionStorage.getItem("app_user_id"))
     const userScorecards = matches.filter(matches => currentUserId === matches.userId)
+    const history = useHistory()
 
     useEffect(() => {
         getMatches()
