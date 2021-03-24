@@ -35,7 +35,7 @@ export const ThrowForm = () => {
             //This is where the throw order is being added
             const throwToBeSaved = { ...throwObj }
             throwToBeSaved.throwOrder = countThrows
-            throwToBeSaved.matchId = matchId
+            throwToBeSaved.matchId = parseInt(matchId)
             addThrow(throwToBeSaved)
                 .then(() => {
                     //this resets the for total for the throws to blank

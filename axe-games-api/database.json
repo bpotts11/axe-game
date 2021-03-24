@@ -34,46 +34,46 @@
   "matches": [
     {
       "userId": 3,
-      "opponentsName": "Myself",
+      "opponentsName": "Johnny",
       "userWin": false,
-      "timeStamp": 1616529478773,
+      "timeStamp": 1616559492882,
       "id": 1
     }
   ],
   "throws": [
     {
-      "userThrow": "1",
-      "opponentsThrow": "1",
+      "userThrow": "2",
+      "opponentsThrow": "3",
       "throwOrder": 1,
-      "matchId": "1",
+      "matchId": 1,
       "id": 1
     },
     {
-      "userThrow": "2",
+      "userThrow": "4",
       "opponentsThrow": "2",
       "throwOrder": 2,
-      "matchId": "1",
+      "matchId": 1,
       "id": 2
-    },
-    {
-      "userThrow": "3",
-      "opponentsThrow": "3",
-      "throwOrder": 3,
-      "matchId": "1",
-      "id": 3
-    },
-    {
-      "userThrow": "4",
-      "opponentsThrow": "4",
-      "throwOrder": 4,
-      "matchId": "1",
-      "id": 4
     },
     {
       "userThrow": "5",
       "opponentsThrow": "5",
+      "throwOrder": 3,
+      "matchId": 1,
+      "id": 3
+    },
+    {
+      "userThrow": "8",
+      "opponentsThrow": "8",
+      "throwOrder": 4,
+      "matchId": 1,
+      "id": 4
+    },
+    {
+      "userThrow": "4",
+      "opponentsThrow": "1",
       "throwOrder": 5,
-      "matchId": "1",
+      "matchId": 1,
       "id": 5
     }
   ],

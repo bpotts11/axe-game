@@ -7,6 +7,7 @@ import { MatchProvider } from "./match/MatchProvider"
 import { MatchButton } from "./match/MatchButton"
 import { ThrowForm } from "./throw/ThrowForm"
 import { ThrowProvider } from "./throw/ThrowProvider"
+import { ScorecardList } from "./scorecard/ScorecardList"
 
 export const ApplicationViews = () => {
     return (
@@ -28,6 +29,16 @@ export const ApplicationViews = () => {
                     </ThrowProvider>
                 </MatchProvider>
             </UserProvider>
+
+            <MatchProvider>
+                <ThrowProvider>
+                    <UserProvider>
+                        <Route exact path="/scorecards">
+                            <ScorecardList />
+                        </Route>
+                    </UserProvider>
+                </ThrowProvider>
+            </MatchProvider>
         </>
     )
 }

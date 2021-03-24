@@ -6,7 +6,7 @@ export const MatchProvider = (props) => {
     const [matches, setMatches] = useState([])
 
     const getMatches = () => {
-        return fetch("http://localhost:8088/matches")
+        return fetch("http://localhost:8088/matches?_embed=throws&_expand=user")
             .then(res => res.json())
             .then(setMatches)
     }
