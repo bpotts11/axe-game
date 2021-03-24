@@ -38,6 +38,20 @@
       "userWin": false,
       "timeStamp": 1616559492882,
       "id": 1
+    },
+    {
+      "userId": 3,
+      "opponentsName": "britt",
+      "userWin": false,
+      "timeStamp": 1616561936065,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "opponentsName": "Myself",
+      "userWin": false,
+      "timeStamp": 1616561979521,
+      "id": 3
     }
   ],
   "throws": [
@@ -75,6 +89,76 @@
       "throwOrder": 5,
       "matchId": 1,
       "id": 5
+    },
+    {
+      "userThrow": "2",
+      "opponentsThrow": "3",
+      "throwOrder": 1,
+      "matchId": 2,
+      "id": 6
+    },
+    {
+      "userThrow": "3",
+      "opponentsThrow": "4",
+      "throwOrder": 2,
+      "matchId": 2,
+      "id": 7
+    },
+    {
+      "userThrow": "2",
+      "opponentsThrow": "1",
+      "throwOrder": 3,
+      "matchId": 2,
+      "id": 8
+    },
+    {
+      "userThrow": "4",
+      "opponentsThrow": "0",
+      "throwOrder": 4,
+      "matchId": 2,
+      "id": 9
+    },
+    {
+      "userThrow": "7",
+      "opponentsThrow": "8",
+      "throwOrder": 5,
+      "matchId": 2,
+      "id": 10
+    },
+    {
+      "userThrow": "2",
+      "opponentsThrow": "2",
+      "throwOrder": 1,
+      "matchId": 3,
+      "id": 11
+    },
+    {
+      "userThrow": "1",
+      "opponentsThrow": "0",
+      "throwOrder": 2,
+      "matchId": 3,
+      "id": 12
+    },
+    {
+      "userThrow": "4",
+      "opponentsThrow": "5",
+      "throwOrder": 3,
+      "matchId": 3,
+      "id": 13
+    },
+    {
+      "userThrow": "3",
+      "opponentsThrow": "4",
+      "throwOrder": 4,
+      "matchId": 3,
+      "id": 14
+    },
+    {
+      "userThrow": "7",
+      "opponentsThrow": "8",
+      "throwOrder": 5,
+      "matchId": 3,
+      "id": 15
     }
   ],
   "friends": []
