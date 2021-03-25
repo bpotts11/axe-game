@@ -9,26 +9,6 @@
       "email": "bb@email.com",
       "name": "Billy Belew",
       "id": 2
-    },
-    {
-      "email": "cc@email.com",
-      "name": "Chris Carter",
-      "id": 3
-    },
-    {
-      "email": "dd@email.com",
-      "name": "Darnell Dennis",
-      "id": 4
-    },
-    {
-      "email": "ee@email.com",
-      "name": "Eliza Ellis",
-      "id": 5
-    },
-    {
-      "email": "ff@email.com",
-      "name": "Felicia Fierce",
-      "id": 6
     }
   ],
   "matches": [
@@ -54,10 +34,10 @@
       "id": 3
     },
     {
-      "userId": 3,
-      "opponentsName": "Johnny",
+      "userId": 2,
+      "opponentsName": "Johnnyyy",
       "userWin": false,
-      "timeStamp": 1616611995296,
+      "timeStamp": 1616617491923,
       "id": 4
     }
   ],

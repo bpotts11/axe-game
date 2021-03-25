@@ -8,7 +8,7 @@ export const MatchForm = () => {
     const [user] = useState({ name: "" })
     const history = useHistory()
     const { matchId } = useParams()
-
+    //wait for data before button is active.
     const [isLoading, setIsLoading] = useState(true)
 
     const [match, setMatch] = useState({
@@ -17,7 +17,8 @@ export const MatchForm = () => {
         userWin: false,
         timeStamp: ""
     })
-
+    //when field changes, update state. This causes a re-render and updates the view.
+    //Controlled component
     const handleControlledInputChange = (event) => {
         const newMatch = { ...match }
         newMatch[event.target.id] = event.target.value
@@ -31,6 +32,7 @@ export const MatchForm = () => {
         } else {
             setIsLoading(true)
             if (matchId) {
+                // PUT
                 editMatch({
                     userId: match.userId,
                     opponentsName: match.opponentsName,
@@ -40,6 +42,7 @@ export const MatchForm = () => {
                 })
                     .then(() => history.push("/scorecards"))
             } else {
+                //POST
                 addMatches(match)
                     .then((matchId) => history.push(`/matches/${matchId.id}/throws/create`))
             }
@@ -62,7 +65,7 @@ export const MatchForm = () => {
 
     return (
         <form className="matchForm">
-            <h2>Start Match</h2>
+            <h2>{matchId ? "Edit Match" : "Start Match"}</h2>
             <fieldset>
                 <div>Welcome, {user.name}</div>
                 <div className="form-group">
@@ -75,8 +78,8 @@ export const MatchForm = () => {
                         event.preventDefault()
                         handleSaveMatch()
                     }}>
-                    Let's throw some axes!
-            </button>
+                    {matchId ? "Save Match" : "Let's throw some axes!"}
+                </button>
             </fieldset>
         </form>
     )
