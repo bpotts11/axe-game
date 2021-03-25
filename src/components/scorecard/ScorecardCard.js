@@ -14,6 +14,13 @@ export const ScorecardCard = ({ scorecard }) => {
             })
     }
 
+    // let userTotal = scorecard.throws?.map((n) => n * 100)
+    // console.log('userTotal: ', userTotal);
+    // const userScore = scorecard.throws?.map(throwObj => key={throwObj.id} {throwObj.userThrow})
+
+
+
+
     // This is building up the scorecard with the info from matches and mapping through throws
     return (
         <section className="scorecard">
@@ -22,6 +29,7 @@ export const ScorecardCard = ({ scorecard }) => {
             <ul className="scorecard__userThrows">
                 {scorecard.throws?.map(throwObj => <li key={throwObj.id}>Throw {throwObj.throwOrder} - {throwObj.userThrow}</li>)}
             </ul>
+            <div>{userTotal}</div>
             <div className="scorecard__opponentsName">{scorecard.opponentsName}</div>
             <ul className="scorecard__userThrows">
                 {scorecard.throws?.map(throwObj => <li key={throwObj.id}>Throw {throwObj.throwOrder} - {throwObj.opponentsThrow}</li>)}
