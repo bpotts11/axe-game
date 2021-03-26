@@ -45,9 +45,23 @@ export const MatchProvider = (props) => {
             .then(getMatches)
     }
 
+
+    const winnerOfMatch = (match) => {
+        return fetch(`http://localhost:8088/matches/${match.id}`, {
+            method: "PATCH",
+            body: JSON.stringify({
+                completed: true
+            }),
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+            .then(getMatches)
+    }
+
     return (
         <MatchContext.Provider value={{
-            matches, getMatches, getMatchById, addMatches, deleteMatch, editMatch
+            matches, getMatches, getMatchById, addMatches, deleteMatch, editMatch, winnerOfMatch
         }}>
             {props.children}
         </MatchContext.Provider>
