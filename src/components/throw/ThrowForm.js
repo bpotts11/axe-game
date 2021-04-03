@@ -53,12 +53,7 @@ export const ThrowForm = () => {
     return (
         <>
             {countThrows <= 5 ? <form className="throwForm">
-                <h2>Throw:
-                <div>
-                        {countThrows}
-                    </div>
-                </h2>
-                <p>{countThrows}</p>
+                <h2>Throw: {countThrows}</h2>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="userThrow">Your throw</label>

@@ -22,7 +22,7 @@ export const ScorecardCard = ({ scorecard }) => {
     const opponentTotal = opponentThrowNumber.reduce((total, amount) => total + amount)
 
     // This is building up the scorecard with the info from matches and mapping through throws
-    if (userTotal > opponentTotal) {
+    if (userTotal >= opponentTotal) {
         return (
             <section className="scorecard">
                 <div className="scorecard__date">{new Date(scorecard.timeStamp).toLocaleDateString('en-US')}</div>
